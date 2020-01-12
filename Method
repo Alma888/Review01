@@ -1,0 +1,66 @@
+# Review01
+
+
+1、方法的定义语法
+       public static 返回值类型 方法名称(形参列表){...}
+    （其中限定符（Modifiers）：public static）
+      【 形参：paramaters】
+      【 实参：arguments 】
+
+2、方法的调用
+     方法名称（实参列表）
+     变量 = 方法名称（实参列表）
+    
+栈（stack）                 方法的调用过程是值拷贝的过程
+先进后出                      方法调用栈 形参的改变不会影响实参
+后进先出
+
+//代码演示：
+public class Test{
+   public static int methodA(int a) {
+      return a + 1;   
+  }
+ 
+   public static int methodB(int b) {
+      return methodA (b) + 1;
+  }
+  public static void main(String[]  args) {
+     int m = 10;
+     System.out.println(methodB(m));
+  }  //结果是12
+}
+ //从下到上，m值传给b,b再传给a,只传值。最后在从上到下返回
+
+
+3、方法的返回值（void）
+         当方法以void关键字声明，那么此方法没有返回值；若有返回值，返回值  
+      可以为基本类型和引用类型。
+         (重要) 如果方法以void声明，那么可以使用return来结束调用（常常与if    
+      语句配合使用）==>看下面代码
+public static void main(String[] args) {
+    myPrint(1);
+    myPrint(2);
+    myPrint(3);
+    myPrint(4);
+}
+public static void myPrint(int x){
+   if (x==2) {
+     return ;//若执⾏此语句，则此语句后⾯的代码不被执⾏，⽅法结束调⽤。
+  }else {
+   System.out.println(x);
+   }
+  }
+}
+
+
+4、什么是方法的签名：注：返回值类型不是签名的一部分
+       就是=》 方法的名称 + 形参列表
+       假如两个方法的名称 + 形参列表都一样，那我们称是同一个方法
+    （1）方法的重载 Overload（重要）——是一种现象
+            【定义】：方法名称相同，参数的类型、顺序或个数不同（简称：参数
+                              列表不同）
+
+5、方法的递归
+    （1）定义：指的是一个方法自己调用自己的方式。
+    （2）递归方法的特点：方法必须有递归的结束条件
+                       方法在每次递归处理的时候一定要作出一些变更
