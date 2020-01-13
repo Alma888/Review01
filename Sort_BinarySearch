@@ -1,0 +1,49 @@
+# Review01
+
+//二分查找排序
+//（前提：区间是有序的）
+
+public class Search {
+
+    //左闭右开区间【）————————————————————————————————————————————————————————————————————————————————————————————
+    public static int binarySearch1(int[] a, int v) {
+        int left=0;
+    int right=a.length;
+        while (left<right){
+            int mid=(left+right)/2;
+            if(a[mid]==v){
+            return mid;
+        }else if(a[mid]<v){
+            left=mid+1;
+        }else {
+            right=mid;
+        }
+    }
+        return -1;
+}
+
+    //左闭右闭区间【】————————————————————————————————————————————————————————————————————————————————————————————
+    public static int binarySearch2(int[] a, int v) {
+        int left=0;
+        int right=a.length-1;
+        while (left<=right){
+            int mid=(left+right)/2;
+            if(a[mid]==v){
+                return mid;
+            } else if (v > mid) {
+                left=mid+1;
+            }else {
+                right=mid-1;
+            }
+        }
+        return -1;
+    }
+
+
+    public static void main(String[] args) {
+        int[] a=new int[]{2,3,6,7,8,9};
+        //输出数组中等于给定数字的元素下标
+        System.out.println(binarySearch1(a,6));
+        //System.out.println(binarySearch2(a,6));
+    }
+}
