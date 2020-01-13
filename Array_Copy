@@ -1,0 +1,37 @@
+# Review01
+
+//数组拷贝
+public class Copy{
+   public static int[] copyOf(int[] original,int newLength){
+       int[] dest=new int[newLength];
+       //防止出现数组下标越界异常
+       int length=original.length<=newLength?original.length:newLength;
+       for(int i=0;i<length;i++){
+              dest[i]=original[i];
+       }
+      return dest;
+   }
+    public static void main(String[] args){
+        int[] a=new int[] {2,3,4,5,6,7,8};
+        int[] dest=copyOf(a,10);
+        for(int j=0;j<dest.length;j++){
+            System.out.print(dest[j]+" ");
+        }
+        System.out.println();
+    }
+}
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————
+//若该类的首行已经引入相关的包：import java.util.Arrays;
+// 可直接用Arrays.copyOf(a,10);替代上面的copyOf方法
+import java.util.Arrays;
+
+public class Copy{
+    public static void main(String[] args) {
+        int[] a=new int[]{2,3,4,5,6,7,8};
+       int[] dest=Arrays.copyOf(a,10);
+       for(int i=0;i<dest.length;i++){
+           System.out.print(dest[i]+" ");
+       }
+    }
+}
