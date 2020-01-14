@@ -1,0 +1,50 @@
+# Review01
+
+//冒泡排序
+import java.util.Arrays;
+
+public class Sort01 {
+    //从前往后冒泡：将最大的数冒到最后一位————————————————————————————————（方法一）
+    public static void bubbleSort(int[] a){
+        boolean sorted=true;
+        for(int i=0;i<a.length;i++){
+            // 无序区间 [0，a.length-i)
+            // 有序区间 [a.length-i,a.length)
+            //冒泡过程
+            for(int j=0;j<a.length-i-1;j++){//空出最后一位
+                if(a[j]>a[j+1]){
+                    swap(a,j,j+1);
+                    sorted=false;
+                }
+            }
+            if(sorted==true){
+                return;
+            }
+        }
+    }
+    //从后往前冒泡：将最小的数冒到第一位——————————————————————————————————————（方法二）
+    public static void bubbleSort1(int[] a) {
+        for (int i = 0; i < a.length; i++) {
+            // 无序区间 [i，a.length)
+            // 有序区间 [0,i)
+            //冒泡过程
+            for (int j = a.length - 1; j > i; j--) {
+                if (a[j] < a[j - 1]) {
+                    swap(a, j, j + 1);
+                }
+            }
+        }
+    }
+
+    private static void swap(int[] a, int j, int i) {
+        int t=a[j];
+        a[j]=a[i];
+        a[i]=t;
+    }
+    public static void main(String[] args) {
+      int[] a={2,5,1,6,8,3,7,4};
+      bubbleSort(a);
+      //bubbleSort1(a);
+      System.out.println(Arrays.toString(a));
+  }
+}
