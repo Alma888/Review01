@@ -1,0 +1,25 @@
+# Review01
+
+//求去掉一个最大值和一个最小值的平均值
+public class Aver{
+  public static double average(int[] a){
+    int sum=0;
+    int max=Integer.MAX_VALUE;
+    int min=Integer.MIN_VALUE;
+    for(int v:a){
+        sum+=v;
+
+        if(v>max){
+            max=v;
+        }
+        if(v<min){
+            min=v;
+        }
+    }
+    return (double)(sum-max-min)/(a.length-2);
+}
+ public static void main(String[] args) {
+     int[] a={2,5,1,6,8,3,7,4};
+     System.out.println(average(a));
+}
+}
