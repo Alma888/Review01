@@ -1,0 +1,40 @@
+# Review01
+
+ //将偶数放左边，奇数在右边
+    //方法一：前后两个变量同时遍历，直到中间相遇
+ public class Part{
+    public static int[] partition1(int[] nums){
+        int begin=0;
+        int end=nums.length-1;
+        //[begin,end] 区间内的数时未判断的数
+        //[0,begin)  偶数
+        //[end,nums.length) 奇数
+        while (begin<end){
+            while (begin<end&&nums[begin]%2==0){
+                begin++;
+            }
+            while (begin<end&&nums[end]%2!=0){
+                end--;
+            }
+            swap(nums,begin,end);
+        }
+        return nums;
+    }
+
+    //方法二：两个变量都在首位，将偶数往前放，不管奇数，遍历到奇数就跳过，遇到偶数就放前面
+    public static int[] partition2(int[] nums){
+        int d=0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]%2==0){
+                swap(nums,i,d);
+                d++;
+            }
+        }
+        return nums;
+    }
+
+     public static void main(String[] args) {
+        System.out.println(Arrays.toString(partition1(new int[] {2,1,4,3,8})));
+        //System.out.println(Arrays.toString(partition2(new int[] {2,1,4,3,8})));
+    }
+}
