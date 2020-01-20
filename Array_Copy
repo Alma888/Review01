@@ -1,6 +1,9 @@
 # Review01
 
 //数组拷贝
+//两种方法：
+
+方法一：
 public class Copy{
    public static int[] copyOf(int[] original,int newLength){
        int[] dest=new int[newLength];
@@ -22,6 +25,7 @@ public class Copy{
 }
 
 ——————————————————————————————————————————————————————————————————————————————————————————————————————————
+方法二：
 //若该类的首行已经引入相关的包：import java.util.Arrays;
 // 可直接用Arrays.copyOf(a,10);替代上面的copyOf方法
 import java.util.Arrays;
